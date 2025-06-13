@@ -1,0 +1,20 @@
+name: butler
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  pull-requests: write
+
+jobs:  
+  chat:    
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ca-dp/code-butler@v1
+        with:
+            OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        cmd: chat
+        comment_body: ${{ github.event.comment.body }}
+          
