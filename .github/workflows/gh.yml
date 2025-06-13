@@ -13,7 +13,7 @@ jobs:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v4
-      - run: env
+     # - run: env
       - run: gh --version
       - run: gh auth status
       - run: gh repo list
